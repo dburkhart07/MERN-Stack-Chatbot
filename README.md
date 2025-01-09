@@ -33,3 +33,7 @@ Create a random string for the JWT authentication, as well as the cookies secret
 This project uses the OpenAI API for chat integration. In order to use the OpenAI API, you will need to use your own personal OpenAI Secret Key
 
 ### End
+Finally, go into both the frontend and backend folders and run the following command:
+```bash
+npm start
+```
