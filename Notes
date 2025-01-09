@@ -1,0 +1,16 @@
+to run: npm run dev in /backend
+
+Ctrl + c to stop from running
+
+
+For frontend: npm create vite@latest
+              npm i
+
+
+Material UI: npm install @mui/material @emotion/react @emotion/styled
+
+Reacticons: npm install react-icons --save
+
+React Router Dom: npm install react-router-dom
+
+React-Hot-Toast (notifications): npm install react-hot-toast

@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "morgan": "^1.10.0",
+    "react-syntax-highlighter": "^15.5.0"
+  },
+  "devDependencies": {
+    "@types/react-syntax-highlighter": "^15.5.13"
+  }
+}
