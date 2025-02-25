@@ -8,13 +8,10 @@ import { useNavigate } from "react-router-dom";
 import { deleteUserChats, getUserChats, sendChatRequest } from "../helpers/api-communicator";
 import toast from "react-hot-toast";
 
-
 type Message = {
   role: "user" | "assistant";
   content: string;
 };
-
-
 const Chat = () => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -29,7 +26,6 @@ const Chat = () => {
     setChatMessages((prev) => [...prev, newMessage]);
     const chatData = await sendChatRequest(content);
     setChatMessages([...chatData.chats]);
-    //
   };
   const handleDeleteChats = async () => {
     try {
@@ -99,7 +95,8 @@ const Chat = () => {
               fontWeight: 700,
             }}
           >
-            {auth?.user?.name.split(" ")[0].slice(0, 2).toUpperCase()}
+            {auth?.user?.name[0]}
+            {auth?.user?.name.split(" ")[1][0]}
           </Avatar>
           <Typography sx={{ mx: "auto", fontFamily: "work sans" }}>
             You are talking to a ChatBOT
