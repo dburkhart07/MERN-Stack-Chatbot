@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const navigate = useNavigate();
   const auth = useAuth();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
@@ -19,11 +20,12 @@ const Login = () => {
       toast.loading("Signing In", { id: "login" });
       await auth?.login(email, password);
       toast.success("Signed In Successfully", { id: "login" });
+      navigate("/chat");
     } catch (error) {
-      console.log(error);
-      toast.error("Signing In Failed", { id: "login" });
+      toast.error("Wrong username or password", { id: "login" });
     }
   };
+
   useEffect(() => {
     if (auth?.user) {
       return navigate("/chat");

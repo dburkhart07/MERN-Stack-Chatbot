@@ -10,7 +10,6 @@ function extractCodeFromString(message: string) {
   }
 }
 
-// TEST COMMENT
 function isCodeBlock(str: string) {
   if (
     str.includes("=") ||

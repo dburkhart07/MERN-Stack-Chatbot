@@ -10,21 +10,30 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
   const navigate = useNavigate();
   const auth = useAuth();
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
+  
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    }
+  
     try {
       toast.loading("Signing Up", { id: "signup" });
       await auth?.signup(name, email, password);
       toast.success("Signed Up Successfully", { id: "signup" });
+      navigate("/chat");
     } catch (error) {
-      console.log(error);
       toast.error("Signing Up Failed", { id: "signup" });
     }
   };
+  
+
   useEffect(() => {
     if (auth?.user) {
       return navigate("/chat");
